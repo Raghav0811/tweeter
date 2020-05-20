@@ -1,0 +1,29 @@
+.tweet {
+  border: 5px solid #c22d00;
+  border-radius: 20px;
+  padding: 1em;
+  margin: 1em 0em;
+}
+
+.tweet:hover {
+  box-shadow: 7px 7px rgb(163, 162, 162);
+}
+
+.tweet header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0em .3em;
+}
+
+.wrapper {
+  width: 250px;
+  display:  flex;
+  align-items: center;
+}
+
+.handle {
+  visibility: hidden;
+}
+
+
