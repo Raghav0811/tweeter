@@ -5,6 +5,12 @@
  */
 var $;
 
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 $(function() {
 
   const addingTweets = {
@@ -16,11 +22,11 @@ $(function() {
         return;
       }
       if (!input.val()) {
-        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me?").fadeIn(200).fadeOut(5000));
+        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me?").fadeIn(200).fadeOut(00));
         return;
       }
       if (input.val() === null) {
-        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me").fadeIn(200).fadeOut(5000));
+        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me").fadeIn(200).fadeOut(4500));
         return;
       }
 
@@ -53,4 +59,79 @@ $(function() {
     });
   }
 
-  
+  //Toggle New-Tweet Menu//
+  $(".compose").on("click", function () {
+    $(".new-tweet").slideToggle("fast", function() {
+    });
+    $("textarea").focus();
+  });
+
+  //Button change when clicked//
+  $(".compose").on("click", function () {
+    $(".compose").stop().toggleClass("compose-clicked");
+  });
+
+  //Function for time ago on tweets//
+  function timeSince(date) {
+    var seconds = Math.floor((new Date() - date) / 1000);
+    var interval = Math.floor(seconds / 31536000);
+    if (interval > 1) {
+      return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+  }
+
+  function createTweetElement(tweetObject) {
+    const $tweet = $("<article>").addClass("tweet");
+
+    //Tweet Header//
+    const $img = $("<img>").addClass("avatar").attr("src", tweetObject.user.avatars.small);
+    const $handle = $("<p>").addClass("handle").text(tweetObject.user.handle);
+    const $user = $("<p>").addClass("user").text(tweetObject.user.name);
+
+    const $header = $("<header>")
+      .append($img)
+      .append($user)
+      .append($handle);
+
+    $tweet.append($header);
+
+    //Tweet Content//
+    const $contentDetail = $("<p>").addClass("tweet-detail").text(tweetObject.content.text);
+    const $contentContainer = $("<div>").addClass("tweet-content").append($contentDetail);
+
+    $tweet.append($contentContainer);
+
+    //Tweet Footer//
+    const createdAt = $("<p>").text(timeSince(tweetObject.created_at) + " ago");
+    const favouriteIcon = $("<i>").addClass("fa fa-star-o");
+    const retweetIcon = $("<i>").addClass("fa fa-retweet");
+    const flagIcon = $("<i>").addClass("fa fa-exclamation-triangle");
+
+    const $footerTime = $("<div>").addClass("time-ago").append(createdAt);
+    const $footerIcons = $("<div>").addClass("icons").append(favouriteIcon, retweetIcon, flagIcon);
+
+    const $footer = $("<footer>")
+      .append($footerTime)
+      .append($footerIcons);
+
+    $tweet.append($footer);
+    return $tweet;
+  }
+});

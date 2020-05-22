@@ -1,13 +1,20 @@
-$(document).ready(function() {
-  $('textarea').on('input', function() {
-    const maxCount = 140;
-    const inputLength = $(this).val().length;
-    $(this).nextAll(".counter").text(maxCount - inputLength);
-    if (maxCount - inputLength < 0) {
-      $(this).nextAll(".counter").css("color", "red");
+var $;
+
+$(function() {
+  const characterCount = ".new-tweet textarea";
+  function updateCount() {
+    let remaining = 140 - $(this).val().length;
+    $(this).siblings("span").text(remaining);
+    if (remaining < 0) {
+      $(this).siblings("span").addClass("alertText");
     } else {
-      $(this).nextAll(".counter").css("color", "#545149");
+      $(this).siblings("span").removeClass("alertText");
     }
-  });
+  }
+
+  $(characterCount).keyup(updateCount);
+  $(characterCount).mouseup(updateCount);
+  $(characterCount).mouseout(updateCount);
+  $(characterCount).change(updateCount);
 
 });
