@@ -3,6 +3,8 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
+
 html {
   box-sizing: border-box;
 }
@@ -11,14 +13,17 @@ html {
 }
 
 /*
- * Global layout stuff
- */
+* Global layout stuff
+*/
 
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 130px;
 }
 
 main {
@@ -40,11 +45,22 @@ main button {
   outline: none;
 }
 
+.alertText {
+  color: tomato;
+}
+
 main button:hover {
   cursor: pointer;
 }
 
 
 /*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+* Additional CSS can be defined below or in other CSS files, as per instructions
+*/
+      
+
+@media screen and (max-width : 768px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+}
