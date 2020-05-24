@@ -14,3 +14,10 @@ nav {
  nav > span {
    font-family: 'Bungee';
  }
+
+ @media screen and (max-width : 768px) {
+    nav {
+        background-color: #e86c00;
+      }
+  
+}
