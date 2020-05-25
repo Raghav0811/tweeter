@@ -24,3 +24,5 @@ Tweeter is built using HTML, CSS, JS, jQuery and AJAX for the front-end, and Nod
 - Express
 - Node 5.10.x or above
   -MongoDB
+  -Body-parser
+  -Chance
