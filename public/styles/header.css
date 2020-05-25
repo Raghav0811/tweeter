@@ -2,14 +2,26 @@
   height: 400px;
   left: 0;
   right: 0;
-  background-color: #e86c00;
-background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  background-color: var(--light-orange);
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   text-align: center;
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
 }
 
-.your-account h2 {
-  position: relative;
-  bottom: 30px;
-  font-family: 'Source Sans Pro';
+.your-account > h2 {
+  font-family: "Source Sans Pro";
+  margin-bottom: 20px;
+}
+
+.your-account img {
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 1100px) {
+  .your-account {
+    margin: 0 -170px;
+    background-color: var(--primary-orange);
+  }
 }

@@ -1,12 +1,14 @@
 .tweet {
-  border: 5px solid #c22d00;
-  border-radius: 20px;
+  border: 2px solid var(--dark-brown);
+  border-radius: 10px;
   padding: 1em;
   margin: 1em 0em;
+  transition: all 0.09s ease-in-out;
 }
 
 .tweet:hover {
-  box-shadow: 7px 7px rgb(163, 162, 162);
+  box-shadow: 3.5px 3.5px rgb(196, 193, 193);
+  transform: translateY(-5px);
 }
 
 /* Top part of each tweet */
@@ -14,17 +16,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0em .3em;
+  margin: 0em 0.3em;
 }
 
 .wrapper {
   width: 250px;
-  display:  flex;
+  display: flex;
   align-items: center;
 }
 
 .wrapper img {
-  margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .handle {
@@ -33,12 +35,11 @@
 
 .tweet:hover .handle {
   visibility: visible;
-  color: rgb(163, 162, 162);
+  color: var(--light-blue);
   position: relative;
   right: 0;
 }
 
-/* Content of the tweet */
 .content {
   padding: 1.5em;
   padding-left: 1em;
@@ -46,21 +47,15 @@
   overflow-wrap: break-word;
 }
 
-/* Bottom part of the tweet */
 .tweet footer {
-  padding: .5em 0em;
-  margin: 0em .3em;
+  padding: 0.5em 0em;
+  margin: 0em 0.3em;
   font-size: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.actions {
-  float: right;
-  width: 130px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.tweet .time-ago {
+  color: var(--light-blue);
 }
-

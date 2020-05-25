@@ -18,15 +18,15 @@ $(function() {
       event.preventDefault();
       const input = $("textarea");
       if (input.val().length > 140) {
-        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Slow down babe, 140 is the magic number").fadeIn(200).fadeOut(5000));
+        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Slow down babe, 140 is the magic number").fadeIn(200).fadeOut(3000));
         return;
       }
       if (!input.val()) {
-        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me?").fadeIn(200).fadeOut(00));
+        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me?").fadeIn(200).fadeOut(3000));
         return;
       }
       if (input.val() === null) {
-        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me").fadeIn(200).fadeOut(4500));
+        $(".submit-tweet").prepend($("<div>").addClass("tweet-error").text("Couldn't catch that, you talkin to me").fadeIn(200).fadeOut(3500));
         return;
       }
 
@@ -100,8 +100,7 @@ $(function() {
   function createTweetElement(tweetObject) {
     const $tweet = $("<article>").addClass("tweet");
 
-    //Tweet Header//
-    const $img = $("<img>").addClass("avatar").attr("src", tweetObject.user.avatars.small);
+    const $img = $("<img>").addClass("avatar").attr("src", tweetObject.user.avatars);
     const $handle = $("<p>").addClass("handle").text(tweetObject.user.handle);
     const $user = $("<p>").addClass("user").text(tweetObject.user.name);
 

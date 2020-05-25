@@ -7,17 +7,20 @@ nav {
   right: 0;
   left: 0;
   z-index: 1000;
-  background-color: #4056A1;
-  color: #FFFFFF;
+  background-color: var(--primary-orange);
+  color: var(--dark-brown);
   padding: 1.5em;
 }
- nav > span {
-   font-family: 'Bungee';
- }
+#tweeter {
+  font-family: "Bungee", cursive, sans-serif;
+}
 
- @media screen and (max-width : 768px) {
-    nav {
-        background-color: #e86c00;
-      }
-  
+#bird {
+  height: 30px;
+  width: 30px;
+}
+
+nav i {
+  background-color: var(--primary-orange);
+  border: none;
 }

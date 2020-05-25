@@ -4,41 +4,53 @@
  * Do not modify these two selectors, please
  */
 
-
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 /*
 * Global layout stuff
 */
+:root {
+  --primary-orange: #ff926b;
+  --light-orange: #ffc38b;
+  --lime: #fff3cd;
+  --dark-brown: #4d3e3e;
+  --light-blue: #7dcfb6;
+}
 
 body {
-  color: #545149;
-  background-color: #f4f1ec;
+  background-color: var(--lime);
   font-size: 24px;
-  font-family: 'Source Sans Pro', sans-serif;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  font-family: "Source Sans Pro", sans-serif;
   padding: 130px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--dark-brown);
 }
 
 main {
-  position: relative;
-  width: 90%;
-  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  padding: 170px;
+  grid-gap: 80px;
 }
 
 main button {
-  background-color: rgb(230, 47, 47);
+  background-color: var(--primary-orange);
   position: fixed;
   border: solid 1px #f4f1ec;
   bottom: 2em;
   right: 2em;
-  padding: .9em 1em 1.1em 1em;
+  padding: 0.9em 1em 1.1em 1em;
   display: flex;
   align-content: center;
   border-radius: 60%;
@@ -46,21 +58,20 @@ main button {
 }
 
 .alertText {
-  color: tomato;
+  color: var(--primary-orange);
 }
 
 main button:hover {
   cursor: pointer;
 }
 
-
 /*
 * Additional CSS can be defined below or in other CSS files, as per instructions
 */
-      
 
-@media screen and (max-width : 768px) {
-  body {
+@media screen and (max-width: 1100px) {
+  main {
     grid-template-columns: 1fr;
+    margin-top: -70px;
   }
 }
