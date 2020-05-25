@@ -13,15 +13,13 @@ html {
   box-sizing: inherit;
 }
 
-/*
-* Global layout stuff
-*/
 :root {
   --primary-orange: #ff926b;
   --light-orange: #ffc38b;
   --lime: #fff3cd;
   --dark-brown: #4d3e3e;
   --light-blue: #7dcfb6;
+  --light-brown: #545149;
 }
 
 body {
@@ -60,14 +58,6 @@ main button {
 .alertText {
   color: var(--primary-orange);
 }
-
-main button:hover {
-  cursor: pointer;
-}
-
-/*
-* Additional CSS can be defined below or in other CSS files, as per instructions
-*/
 
 @media screen and (max-width: 1100px) {
   main {
